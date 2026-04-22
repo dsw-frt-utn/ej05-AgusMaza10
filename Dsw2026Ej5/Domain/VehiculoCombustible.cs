@@ -28,6 +28,12 @@ public class VehiculoCombustible: Vehiculo
 
     public override double CalcularConsumo(double kilometros)
     {
-        return kilometros * kilometrosPorLitro;
+        double consumo = kilometros / kilometrosPorLitro;
+
+        if (DateTime.Now.Year - GetAnio() > 5)
+        {
+            consumo = consumo + (kilometros / 15.0) * litrosExtra;
+        }
+        return consumo;
     }
 }
